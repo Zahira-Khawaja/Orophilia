@@ -1,0 +1,51 @@
+<%- include('./partials/header') %>
+    <script src="../js/places.js" defer></script>
+
+
+    
+    <!-- Upload images -->
+    <section class="container" id="uploadImg">
+
+        <form action="/places" enctype="multipart/form-data" method="post">
+            <h4 class="center">Select image to upload:</h4>
+            <div class="row">
+                <input type="file" name="image" id="fileToUpload">
+            </div>
+            <div class="row">
+                <input type="text" name="name" placeholder="Your Name" id="fileToUpload">
+            </div>
+            <div class="row">
+                <input type="text" name="place" placeholder="Place" required id="fileToUpload">
+            </div>
+            <button type="submit" style="margin-bottom: 1rem;"
+                class="btn #a5d6a7 green lighten-3 black-text">upload</button>
+        </form>
+
+    </section>
+
+    <!-- places to visit -->
+    <button id="upload" class="btn #a5d6a7 green lighten-3 black-text"
+        style="position:fixed; z-index: 999; right:20px; top:20px; font-weight: bold;">Upload Images</button>
+
+    <h3 class="center-align">Mountains Around the World</h3>
+    <div class="row" id="row">
+        <% if (typeof imgPost !="undefined" && imgPost) { %>
+            <% imgPost.forEach(imgPost => { %>
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="data:imgPost/<%=imgPost.image.contentType%>;base64,
+                        <%=imgPost.image.data.toString('base64')%>">
+                    </div>
+                    <h6 class="center-align" style="font-weight:bold; padding:0 .2rem !important;">
+                        <%= imgPost.place%>
+                    </h6>
+                    <p class="grey-text center" style="font-weight:bold; padding:0 0 .5rem 0;">By: <%= imgPost.name %>
+                    </p>
+                </div>
+            </div>
+            <% })%>
+            <% } %>
+    </div>
+
+    <%- include('./partials/footer') %>

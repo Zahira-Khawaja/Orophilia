@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+.slider .slides li .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+.searchArea {
+    height: 3rem !important;
+    background-color: grey;
+}
+
+.slides li div h3 {
+    font-family: 'Cinzel', serif;
+}
+
+#logo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#writeBlogSection{
+    display: none;
+}
+
+#uploadImg{
+    display: none;
+}
